@@ -23,6 +23,10 @@ if __name__ == '__main__':
         objective_value = objectives.I2(features, labels)
     elif args.objective == 'E1':
         objective_value = objectives.E1(features, labels)
+    elif args.objective == 'H1':
+        objective_value = objectives.H1(features, labels)
+    elif args.objective == 'H2':
+        objective_value = objectives.H2(features, labels)
     else:
         raise Exception('Unknown objective')
 

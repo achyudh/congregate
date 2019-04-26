@@ -104,3 +104,23 @@ def E1(features, labels):
         objective_value += nr[cluster] * cos[0][cr_index[cluster]]
 
     return objective_value
+
+
+def H1(features, labels):
+    """
+
+    :param features: iterable of tf-idf features for every document
+    :param labels: cluster labels for all the documents in features
+    :return: objective value for the corresponding clustering
+    """
+    return I1(features, labels)/E1(features, labels)
+
+
+def H2(features, labels):
+    """
+
+    :param features: iterable of tf-idf features for every document
+    :param labels: cluster labels for all the documents in features
+    :return: objective value for the corresponding clustering
+    """
+    return I2(features, labels) / E1(features, labels)
