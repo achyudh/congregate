@@ -1,5 +1,5 @@
 from lib.args import get_args
-from lib.io import datasets
+from lib.io import load, save
 from lib import objectives
 
 if __name__ == '__main__':
@@ -7,15 +7,18 @@ if __name__ == '__main__':
     args = get_args()
 
     if args.dataset == 'reuters8':
-        features, labels = datasets.reuters8()
+        features, labels = load.reuters8()
     elif args.dataset == 'classic4':
-        features, labels = datasets.classic4()
+        features, labels = load.classic4()
     elif args.dataset == 'ng20':
-        features, labels = datasets.ng20()
+        features, labels = load.ng20()
     elif args.dataset == 'webkb':
-        features, labels = datasets.webkb()
+        features, labels = load.webkb()
     else:
         raise Exception('Unknown dataset')
+
+    if args.save_dense_matrix:
+        save.dense_matrix(features, labels, args.dataset)
 
     if args.objective == 'I1':
         objective_value = objectives.I1(features, labels)
