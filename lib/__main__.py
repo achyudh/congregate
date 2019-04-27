@@ -19,6 +19,8 @@ if __name__ == '__main__':
 
     if args.save_dense_matrix:
         save.dense_matrix(features, labels, args.dataset)
+    if args.save_sparse_matrix:
+        save.sparse_matrix(features, labels, args.dataset)
 
     if args.objective == 'I1':
         objective_value = objectives.I1(features, labels)

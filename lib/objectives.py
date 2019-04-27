@@ -101,7 +101,7 @@ def E1(features, labels):
 
     objective_value = 0
     for cluster in cr_index.keys():
-        objective_value += nr[cluster] * cos[0][cr_index[cluster]]
+        objective_value += (nr[cluster] * cos[0][cr_index[cluster]])
 
     return objective_value
 
